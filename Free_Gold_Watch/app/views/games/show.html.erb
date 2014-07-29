@@ -20,7 +20,7 @@
 <h2>Your Scores </h2>
 <ul>
 <% @game.scores.each do |score| %>
-<li><%= "#{score.created_at.to_date}--------#{score.value}"   %></li>
+<li><%= "#{score.created_at.to_date}-------#{score.value}"   %></li>
 <% end %>
 </ul>
 
