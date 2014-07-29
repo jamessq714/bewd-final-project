@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  initials: MyString
+  first_name: MyString
+  last_name: MyString
+  game_id: 1
+
+two:
+  initials: MyString
+  first_name: MyString
+  last_name: MyString
+  game_id: 1

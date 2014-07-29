@@ -1,0 +1,27 @@
+
+<h1>Welcome to the Free Gold Watch scoreboard</h1>
+<br/>
+
+<p><%= flash[:notice] %></p>
+
+<br>
+
+
+<%= form_tag "/", method: "GET" do %>
+	<%= text_field_tag :q %>
+	<%= submit_tag  "Search"%>
+<% end %>
+
+<br/><br>
+
+<%= render "list"%>
+
+
+<% if user_signed_in? %>	
+	<h3><%= link_to "new game", new_game_path %></h3>
+<% end %>
+
+<!-- 
+<p>this page should show a list of current games</p>
+<p>anyone can select a game to see its pics/scores</p>
+<p>users can add scores, and add/archive games</p> -->

@@ -1,0 +1,48 @@
+<h1><%= @game.name %></h1>
+<h2><%= @game.year_released %></h2>
+<%#= image_tag "games/" + @game.image%>
+<br>
+
+<!-- <ul>
+	<%# @scores.each do |n|%>
+		<li><%#= n.value, n.created_at %></li>
+	<%#end%>
+</ul>
+ -->
+
+<%= form_for [@game, @score] do |f| %>
+<%= f.label :value, "New Score" %>
+<%= f.text_area :value, :cols => 20 %>
+<%= f.submit %>
+<% end %>
+
+
+<h2>Your Scores </h2>
+<ul>
+<% @game.scores.each do |score| %>
+<li><%= "#{score.created_at.to_date}--------#{score.value}"   %></li>
+<% end %>
+</ul>
+
+
+
+<% if @game.pintype? %>
+	<p><%= "This is a pinball machine"%></p>
+<% else %>
+	<p><%= "This is an arcade game"%></p>
+<% end %>
+
+<% if @game.active? %>
+	<p><%= "This is in the shop right now!"%></p>
+<% else %>
+	<p><%= "This is currently out of circulation"%></p>
+<% end %>
+
+
+<% if user_signed_in? %>	
+	<%= link_to "Edit", edit_game_path(@game)%>
+<% end %>
+
+
+<br>
+<%= link_to 'Back to games', root_path %>

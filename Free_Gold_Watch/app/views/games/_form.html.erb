@@ -1,0 +1,42 @@
+
+<% if @game.errors.any? %>
+	<h2> There was an error in saving your game</h2>
+	<ul>
+		<% @game.errors.full_messages.each do |m| %>
+			<li><%= m %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+
+<%= form_for @game do |f| %>
+	<fieldset>
+		<div class='fields'> 
+			<%= f.label :name, "Name" %>
+			<%= f.text_field :name%>
+		</div>	
+	
+	    <div class="field">
+	      <%= f.label :year_released, "Year Released?" %><br>
+	      <%= f.text_field :year_released %>
+	    </div>
+	
+		<div class="field">
+			<%= f.label :pintype, "Pinball" %>
+			<%= f.radio_button :pintype, true, :checked => true%>
+			<%= f.label :pintype, "Arcade" %>
+      		<%= f.radio_button :pintype, false, :checked => false%>
+  		</div>
+	
+		<div class="field">
+			<%= f.label :active, "In the shop" %> 
+			<%= f.radio_button :active, true, :checked => true%> 
+			<%= f.label :active, "Removed from shop" %>
+      		<%= f.radio_button :active, false, :checked => false%>
+  		</div>
+	
+		
+	</fieldset>
+	<%= f.submit %>
+<% end %>
+
